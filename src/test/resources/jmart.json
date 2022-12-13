@@ -1,0 +1,18 @@
+{
+  "link": "jmart.kz",
+  "seller": [
+    {
+      "id": 0,
+      "name": "Small",
+      "active": true,
+      "categories": ["Meat", "Milk", "Candy"]
+    },
+    {
+      "id": 1,
+      "name": "A-Store",
+      "active": true,
+      "categories": ["Meat", "Milk", "Candy"]
+    }
+  ]
+
+}
