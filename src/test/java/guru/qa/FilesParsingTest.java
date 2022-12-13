@@ -20,38 +20,38 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FilesParsingTest {
     ClassLoader cl = FilesParsingTest.class.getClassLoader();
 
-//    @Test
-//    void zipParseTest() throws Exception {
-//
-//        InputStream resource = cl.getResourceAsStream("zipFile.zip");
-//        ZipInputStream zis = new ZipInputStream(resource);
-//        try {
-//            ZipEntry entry;
-//            while ((entry = zis.getNextEntry()) != null) {
-//                System.out.println("got entry " + entry);
-//
-//                if (entry.getName().contains(".pdf")){
-//                    PDF content = new PDF(zis);
-//                    assertThat(content.text).contains("Роман Савин");
-//                }
-//
-//                if (entry.getName().contains(".csv")){
-//                    CSVReader reader = new CSVReader(new InputStreamReader(zis));
-//                    List<String[]> content = reader.readAll();
-//                    assertThat(content.get(6)[0]).contains("Campbell");
-//                }
-//
-//                if (entry.getName().contains(".xls")){
-//                    XLS content = new XLS(zis);
-//                    assertThat(content.excel.getSheetAt(2).getRow(18).getCell(6).getNumericCellValue()).isEqualTo(0.423);
-//                }
-//            }
-//        }catch (IOException e){
-//            e.printStackTrace();
-//        }
-//        zis.close();
-//        resource.close();
-//    }
+    @Test
+    void zipParseTest() throws Exception {
+
+        InputStream resource = cl.getResourceAsStream("zipFile.zip");
+        ZipInputStream zis = new ZipInputStream(resource);
+        try {
+            ZipEntry entry;
+            while ((entry = zis.getNextEntry()) != null) {
+                System.out.println("got entry " + entry);
+
+                if (entry.getName().contains(".pdf")){
+                    PDF content = new PDF(zis);
+                    assertThat(content.text).contains("Роман Савин");
+                }
+
+                if (entry.getName().contains(".csv")){
+                    CSVReader reader = new CSVReader(new InputStreamReader(zis));
+                    List<String[]> content = reader.readAll();
+                    assertThat(content.get(6)[0]).contains("Campbell");
+                }
+
+                if (entry.getName().contains(".xls")){
+                    XLS content = new XLS(zis);
+                    assertThat(content.excel.getSheetAt(2).getRow(18).getCell(6).getNumericCellValue()).isEqualTo(0.423);
+                }
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        zis.close();
+        resource.close();
+    }
 
     @Test
     void jsonParseTest() throws IOException{
